@@ -14,6 +14,13 @@ SELECT DISTINCT
 FROM
     lw_message;
 
+SELECT DISTINCT
+    lw_message.DIRECTION AS DIRECTION,
+    COUNT(lw_message.DIRECTION) AS COUNT
+FROM
+    lw_message
+GROUP BY lw_message.DIRECTION;
+
 SELECT 
     COUNT(*)
 FROM
@@ -40,13 +47,6 @@ WHERE
     lw_document.STANDARD = 'X12';
 
 SELECT 
-    COUNT(lw_document.STANDARD) AS X12
-FROM
-    lw_document
-WHERE
-    lw_document.STANDARD = 'X12';
-
-SELECT 
     COUNT(lw_document.STANDARD) AS EDIFACT
 FROM
     lw_document
@@ -59,11 +59,3 @@ SELECT DISTINCT
 FROM
     lw_document
 GROUP BY lw_document.STANDARD;
-
-SELECT DISTINCT
-    lw_message.DIRECTION AS DIRECTION,
-    COUNT(lw_message.DIRECTION) AS COUNT
-FROM
-    lw_message
-GROUP BY lw_message.DIRECTION;
-        
